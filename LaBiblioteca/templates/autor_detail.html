@@ -1,0 +1,16 @@
+{% extends "skeleton.html" %}
+
+{% block content %}
+    <h1>Lista autorów</h1>
+    {% if lista_autorow %}
+        <ul>
+            {% for autor in lista_autorow %}
+                <li>
+                    <a href="{% url 'autor-szczegoly' autor.pk}">  {{autor.imie}} {{autor.nazwisko}} </a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Brak autorów w bazie danych.</p>
+    {% endif %}       
+{% endblock %}

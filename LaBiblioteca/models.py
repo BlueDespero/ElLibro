@@ -26,6 +26,9 @@ class Ksiazka(models.Model):
     def get_absolute_url(self):
         return reverse('ksiazka-szczegoly', args=[str(self.id)])
 
+    class Meta:
+        ordering = ['tytul']
+
 class Autor(models.Model):
     imie = models.CharField(max_length=200)
     nazwisko = models.CharField(max_length=200)
@@ -45,6 +48,8 @@ class Autor(models.Model):
 class Egzemplarz(models.Model):
     id = models.UUIDField(primary_key=True, default = uuid.uuid4, help_text="Unikatowe ID egzemplarza książki.")
     ksiazka = models.ForeignKey('Ksiazka', on_delete = models.SET_NULL, null=True)
+    data_zwrotu = models.DateField(null=True, blank=True)
+    #pozyczyl = models.ForeignKey(Uzytkownik, on_delete=models.SET_NULL, null=True, blank=True)
 
     status_wyporzyczenia = (
         ('W', 'Wypożyczona'),

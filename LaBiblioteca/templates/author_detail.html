@@ -1,0 +1,18 @@
+{% extends "skeleton.html" %}
+
+{% block content %}
+    <h1>{{ autor.imie }} {{ autor.nazwisko }}</h1>
+
+
+    <p><strong>Data urodzenia:</strong> {{ autor.data_urodzenia }}</p> 
+    <p><strong>Data śmierci:</strong> {{ autor.data_smierci }}</p>
+
+    <div style="margin-left:20px;margin-top:20px">
+        <h4>Dzieła</h4>
+
+        {% for dzi in autor.ksiazka_set.all %}
+            <hr>
+            <p><strong><a href="{% url 'ksiazka-szczegoly' dzi.pk %}">{{ dzi.tytul }}</a></strong</p>
+        {% endfor %}
+    </div>
+{% endblock %}

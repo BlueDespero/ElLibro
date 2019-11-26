@@ -4,5 +4,6 @@ from . import views
 
 app_name = 'LaBiblioteca'
 urlpatterns = [
-    path('', views.HomepageView),
+    path('', views.HomepageView, name='homepage'),
+    path('ksiazki/', views.BookListView.as_view(), name='ksiazki'),
 ]

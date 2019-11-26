@@ -19,8 +19,19 @@ from django.views.generic import RedirectView
 from django.conf import settings
 from django.conf.urls.static import static
 
+from LaBiblioteca import views
+
 urlpatterns = [
-    path('', RedirectView.as_view(url='biblioteka/', permanent=True), name='homepage'),
+    path('', RedirectView.as_view(url='biblioteka/')),
     path('biblioteka/', include('LaBiblioteca.urls')),
     path('admin/', admin.site.urls),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+#names
+urlpatterns += [
+    path('biblioteka/',  views.HomepageView, name='homepage'),
+    path('biblioteka/ksiazki', views.BookListView.as_view(), name='ksiazki'),
+    path('biblioteka/autorzy', views.AutorListView.as_view(), name='autorzy'),
+    path('biblioteka/ksiazki/<int:pk>', views.BookDetailView.as_view(), name='ksiazka-szczegoly'),
+    path('biblioteka/autor/<int:pk>', views.AutorDetailView.as_view(), name='autor-szczegoly'),
+]
