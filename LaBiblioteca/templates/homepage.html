@@ -1,14 +1,14 @@
 {% extends "skeleton.html" %}
 
 {% block content %}
-  <h1>Strona Główna</h1>
-  <p>Witaj na stonie biblioteki Chwałowickiego Klubu Książki</em>!</p>
-  <h2>Statystyki</h2>
-  <p>Zbiory biblioteki:</p>
-  <ul>
-    <li><strong>Liczba tytułów:</strong> {{ num_ksiazki }}</li>
-    <li><strong>Liczba egzemplarzy:</strong> {{ num_wszystkie_egzemplarze }}</li>
-    <li><strong>Liczba dostępnych egzemplarzy:</strong> {{ num_dostepne_egzemplarze }}</li>
-    <li><strong>Liczba różnych autorów:</strong> {{ num_autor }}</li>
-  </ul>
+    <h1>Strona Główna</h1>
+    <p>Witaj na stonie biblioteki Chwałowickiego Klubu Książki</em>!</p>
+    <h2>Statystyki</h2>
+    <p>Zbiory biblioteki:</p>
+    <ul>
+        <li><strong>Liczba tytułów:</strong> {{ num_ksiazki }}</li>
+        <li><strong>Liczba egzemplarzy:</strong> {{ num_wszystkie_egzemplarze }}</li>
+        <li><strong>Liczba dostępnych egzemplarzy:</strong> {{ num_dostepne_egzemplarze }}</li>
+        <li><strong>Liczba różnych autorów:</strong> {{ num_autor }}</li>
+    </ul>
 {% endblock %}

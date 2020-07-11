@@ -3,9 +3,9 @@
 {% block content %}
     <h1>{{ ksiazka.tytul }}</h1>
 
-    <p><strong>Autor:</strong> <a href="{% url 'autor-szczegoly' ksiazka.autor.pk %}">{{ ksiazka.autor }}</a></p> 
+    <p><strong>Autor:</strong> <a href="{% url 'autor-szczegoly' ksiazka.autor.pk %}">{{ ksiazka.autor }}</a></p>
     <p><strong>Streszczenie:</strong> {{ ksiazka.streszczenie }}</p>
-    <p><strong>Gatunek:</strong> {{ ksiazka.gatunek.all|join:", " }}</p>  
+    <p><strong>Gatunek:</strong> {{ ksiazka.gatunek.all|join:", " }}</p>
 
     <div style="margin-left:20px;margin-top:20px">
         <h4>Egzemplarze</h4>

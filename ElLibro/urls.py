@@ -13,23 +13,23 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf import settings
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import RedirectView
-from django.conf import settings
-from django.conf.urls.static import static
 
 from LaBiblioteca import views
 
 urlpatterns = [
-    path('', RedirectView.as_view(url='biblioteka/')),
-    path('biblioteka/', include('LaBiblioteca.urls')),
-    path('admin/', admin.site.urls),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+                  path('', RedirectView.as_view(url='biblioteka/')),
+                  path('biblioteka/', include('LaBiblioteca.urls')),
+                  path('admin/', admin.site.urls),
+              ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
-#names
+# names
 urlpatterns += [
-    path('biblioteka/',  views.HomepageView, name='homepage'),
+    path('biblioteka/', views.HomepageView, name='homepage'),
     path('biblioteka/ksiazki', views.BookListView.as_view(), name='ksiazki'),
     path('biblioteka/autorzy', views.AutorListView.as_view(), name='autorzy'),
     path('biblioteka/ksiazki/<int:pk>', views.BookDetailView.as_view(), name='ksiazka-szczegoly'),

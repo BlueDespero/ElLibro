@@ -4,11 +4,11 @@
     <h1>Lista książek</h1>
     {% if lista_ksiazek %}
         <ul>
-            {% for ksiazka in lista_ksiazek %}
-                <li>
-                    <a href="{{ ksiazka.get_absolute_url }}">{{ ksiazka.tytul }}</a>
-                      ||  
-                    <a href="{% url 'autor-szczegoly' ksiazka.autor.pk}">  ({{ksiazka.autor}}) </a>
+        {% for ksiazka in lista_ksiazek %}
+            <li>
+            <a href="{{ ksiazka.get_absolute_url }}">{{ ksiazka.tytul }}</a>
+            ||
+            <a href="{% url 'autor-szczegoly' ksiazka.autor.pk}">  ({{ksiazka.autor}}) </a>
                 </li>
             {% endfor %}
         </ul>

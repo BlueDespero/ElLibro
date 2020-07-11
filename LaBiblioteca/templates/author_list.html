@@ -4,9 +4,9 @@
     <h1>Lista autorów</h1>
     {% if lista_autorow %}
         <ul>
-            {% for autor in lista_autorow %}
-                <li>
-                    <a href="{% url 'autor-szczegoly' ksiazka.autor.pk}">  {{autor.imie}} {{autor.nazwisko}} </a>
+        {% for autor in lista_autorow %}
+            <li>
+            <a href="{% url 'autor-szczegoly' ksiazka.autor.pk}">  {{autor.imie}} {{autor.nazwisko}} </a>
                 </li>
             {% endfor %}
         </ul>
